@@ -17,6 +17,7 @@ limitations under the License.
 package utils
 
 import (
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/runtime/serializer"
 )
@@ -32,4 +33,15 @@ func ObjectFromTemplate(text string, scheme *runtime.Scheme) runtime.Object {
 	// not sure if really needed, but set it anyway
 	obj.GetObjectKind().SetGroupVersionKind(*group)
 	return obj
+}
+
+// AddLabel add a label to a resource metadata
+func AddLabel(obj metav1.Object, key string, value string) {
+	labels := obj.GetLabels()
+	if labels == nil {
+		labels = map[string]string{}
+		obj.SetLabels(labels)
+	}
+	labels[key] = value
+
 }

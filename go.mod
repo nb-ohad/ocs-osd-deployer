@@ -8,6 +8,7 @@ require (
 	github.com/onsi/ginkgo v1.12.1
 	github.com/onsi/gomega v1.10.1
 	github.com/openshift/ocs-operator v0.0.1-alpha1.0.20201201172124-0811c33c21b2
+	github.com/prometheus-operator/prometheus-operator/pkg/apis/monitoring v0.45.0
 	k8s.io/apimachinery v0.19.3
 	k8s.io/client-go v12.0.0+incompatible
 	sigs.k8s.io/controller-runtime v0.6.3
